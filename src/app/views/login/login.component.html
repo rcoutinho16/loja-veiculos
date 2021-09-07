@@ -1,0 +1,31 @@
+<p>login works!</p>
+
+<div id="login" class="row pt-4 justify-content-center">
+    <div class="col-6">
+        <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required email #email="ngModel" [(ngModel)]="user.email">
+            </div>
+
+              <div class="alert alert-danger" role="alert" *ngIf="!email.valid && email.touched">
+                E-mail field is mandatory!
+              </div>
+          
+              <div class="form-group">
+                <label for="senha">Password</label>
+                <input type="password" class="form-control" id="pass" name="pass" required pass #pass="ngModel" [(ngModel)]="user.pass">
+              </div>
+          
+              <div class="alert alert-danger" role="alert" *ngIf="!pass.valid && pass.touched">
+                Password field is mandatory!
+              </div>
+
+              <div class="d-grid gap-2 col-9 mx-auto mt-2">
+                <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary">Login</button>
+          
+                <!-- <button type="button" class="btn btn-secondary" [routerLink]="['/signin']">Registrar</button> !-->
+              </div>
+        </form>
+    </div>
+</div>

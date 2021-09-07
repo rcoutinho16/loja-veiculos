@@ -1,0 +1,51 @@
+<div id="car-detail" class="container-fluid pt-4">
+    <form>
+        <div class="row">
+            <div class="col-6 mb-2">
+                <img class="mx-auto d-block" src="../../../assets/lotus.jpg" style="width: 18rem;">
+            </div>
+            <div class="col-6">
+                <div class="row form-group mb-2">
+                    <div class="col-1">
+                        <label for="make" class="col-form-label">Make:</label>
+                    </div>
+                    <div class="col-5">
+                        <input type="text" class="ms-2 form-control-plaintext" id="make" name="make" [ngModel]="car.make" readonly>
+                    </div>
+                </div>
+                <div class="row form-group mb-2">
+                    <div class="col-1">
+                        <label for="model" class="col-form-label">Model:</label>
+                    </div>
+                    <div class="col-5">
+                        <input type="text" class="ms-2 form-control-plaintext" id="model" name="model" [ngModel]="car.model" readonly>
+                    </div>
+                </div>
+                <div class="row form-group mb-2">
+                    <div class="col-1">
+                        <label for="price" class="col-form-label">Price:</label>
+                    </div>
+                    <div class="col-5">
+                        <input type="text" class="ms-2 form-control-plaintext" id="price" name="price" [ngModel]="car.price" readonly>
+                    </div>
+                </div>
+                <div class="row form-group mb-2">
+                    <div class="col-1">
+                        <label for="year" class="col-form-label">Year:</label>
+                    </div>
+                    <div class="col-5">
+                        <input type="text" class="ms-2 form-control-plaintext" id="year" name="year" [ngModel]="car.year" readonly>
+                    </div>
+                </div>
+                <div class="row form-group mb-2">
+                    <div class="col-1">
+                        <label for="km" class="col-form-label">KM:</label>
+                    </div>
+                    <div class="col-5">
+                        <input type="text" class="ms-2 form-control-plaintext" id="km" name="km" [ngModel]="car.km" readonly>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

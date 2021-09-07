@@ -1,0 +1,20 @@
+<div id="home" class="row pt-2 pb-1 justify-content-center">
+
+    <div class="card ms-3 mb-3" style="width: 18rem;" *ngFor="let obj of cars">
+
+        <div class="wrap">
+            
+            <a routerLink="/car-details/{{obj.id}}"></a>
+
+            <img src="../../../assets/lotus.jpg" class="card-img-top">
+
+            <div class="card-body">
+                <h5 class="card-title">{{obj.make}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{obj.model}}</h6>
+                <h6>Price: ${{obj.price}}</h6>
+                <h6>Km: {{obj.km}}</h6>
+                <h6>Year: {{obj.year}}</h6>
+            </div>
+        </div>
+    </div>
+</div>

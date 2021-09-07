@@ -1,0 +1,60 @@
+<div id="dealership-header" class="container-fluid fixed-top">
+
+    <div class="row bg-dark text-light">
+        <div id="delership-header-telephone" class="col-4 p-1 d-flex justify-content-center">
+            {{dealership.telephone}}
+        </div>
+
+        <div id="dealership-header-address" class="col-4 p-1 d-flex justify-content-center">
+            {{dealership.address}}
+        </div>
+
+        <div class = "col-2">
+        </div>
+        
+        <div id="dealership-header-social" class="col-2 p-1 d-flex justify-content-around">
+            <a [href]="dealership.whatsappUrl | safe" target="_blank"> <fa-icon [icon]="faWhatsapp"></fa-icon> </a>
+            <a [href]="dealership.instagramUrl | safe" target="_blank"> <fa-icon [icon]="faInstagram"></fa-icon> </a>
+            <a [href]="dealership.facebookUrl | safe" target="_blank"> <fa-icon [icon]="faFacebook"></fa-icon> </a>
+            <a [href]="dealership.youtubeUrl | safe" target="_blank"> <fa-icon [icon]="faYoutube"></fa-icon> </a>
+            <a [href]="dealership.twitterUrl | safe" target="_blank"> <fa-icon [icon]="faTwitter"></fa-icon> </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <nav id='dealership-header-navbar' class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+            <a class="navbar-brand" [routerLink]="['/']">
+                <img src="../../../assets/logo.png" width="180" class="d-inline-block align-top" alt="">
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse ml-auto" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="['/home']" routerLinkActive="active">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="['/about-us']" routerLinkActive="active">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="['/contact']" routerLinkActive="active">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="['/login']" routerLinkActive="active">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="['/admin']" routerLinkActive="active">Admin</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="['/admin-cars']" routerLinkActive="active">Admin Cars</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+</div>

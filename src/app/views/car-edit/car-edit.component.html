@@ -1,1 +1,59 @@
-<p>car-edit works!</p>
+<div id="car-edit" class="container-fluid pt-4">
+    <form #form="ngForm" (ngSubmit)="edit(form)">
+        <div class="row">
+            <div class="col-6 mb-2">
+                <img class="mx-auto d-block" src="../../../assets/lotus.jpg" style="width: 18rem;">
+            </div>
+            <div class="col-6">
+                <div class="row form-group mb-2">
+                    <div class="col-1">
+                        <label for="make" class="col-form-label">Make:</label>
+                    </div>
+                    <div class="col-5">
+                        <input type="text" class="ms-2 form-control" id="make" name="make" [(ngModel)]="car.make" #make="ngModel" required>
+                    </div>
+                </div>
+                <div class="row form-group mb-2">
+                    <div class="col-1">
+                        <label for="model" class="col-form-label">Model:</label>
+                    </div>
+                    <div class="col-5">
+                        <input type="text" class="ms-2 form-control" id="model" name="model" [(ngModel)]="car.model" #model="ngModel" required>
+                    </div>
+                </div>
+                <div class="row form-group mb-2">
+                    <div class="col-1">
+                        <label for="price" class="col-form-label">Price:</label>
+                    </div>
+                    <div class="col-5">
+                        <input type="text" class="ms-2 form-control" id="price" name="price" [(ngModel)]="car.price" #price="ngModel" required>
+                    </div>
+                </div>
+                <div class="row form-group mb-2">
+                    <div class="col-1">
+                        <label for="year" class="col-form-label">Year:</label>
+                    </div>
+                    <div class="col-5">
+                        <input type="text" class="ms-2 form-control" id="year" name="year" [(ngModel)]="car.year" #year="ngModel" required>
+                    </div>
+                </div>
+                <div class="row form-group mb-2">
+                    <div class="col-1">
+                        <label for="km" class="col-form-label">KM:</label>
+                    </div>
+                    <div class="col-5">
+                        <input type="text" class="ms-2 form-control" id="km" name="km" [(ngModel)]="car.km" #km="ngModel" required>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button type="button" class="btn btn-secondary fw-bold" (click)="cancel()">Cancel</button>
+                </div>
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <button type="submit" [disabled]="!form.valid" class="btn btn-warning fw-bold">Save</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

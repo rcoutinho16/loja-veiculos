@@ -1,1 +1,44 @@
-<p>admin-cars works!</p>
+<div id="admin-cars" class="row">
+
+    <h1 class="pt-2">Admin Cars</h1>
+
+    <div class="row mt-2">
+        <div class="col-4">
+          <button type="button" class="btn btn-primary" [routerLink]="['/car-create']">
+            Add Car
+          </button>
+        </div>
+    </div>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Make</th>
+                <th scope="col">Model</th>
+                <th scope="col">Price</th>
+                <th scope="col">Year</th>
+                <th scope="col">KM</th>
+                <th scope="col">Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let obj of cars">
+                <th scope="row">{{obj.id}}</th>
+                <td>{{obj.make}}</td>
+                <td>{{obj.model}}</td>
+                <td>{{obj.price}}</td>
+                <td>{{obj.year}}</td>
+                <td>{{obj.km}}</td>
+                <td>
+                    <button type="button" class="btn btn-danger btn-sm me-2" (click)="delete(obj.id)">
+                        Delete
+                    </button>
+                    <button type="button" class="btn btn-warning btn-sm" routerLink="/car-edit/{{obj.id}}">
+                        Edit
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

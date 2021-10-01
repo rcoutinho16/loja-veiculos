@@ -21,7 +21,8 @@ export class CarEditComponent implements OnInit {
     price: "0",
     year: "0",
     km: "0",
-    show: false
+    show: false,
+    images: []
   };
 
   constructor(private router: Router,

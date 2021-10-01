@@ -1,3 +1,5 @@
+import { Image } from "./image.model";
+
 export interface Car {
     id: number;
     make: string;
@@ -6,4 +8,5 @@ export interface Car {
     year: string;
     km: string;
     show: boolean;
+    images: Array<Image>;
 }

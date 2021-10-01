@@ -118,6 +118,7 @@
   },
   "defaultProject": "loja-veiculos",
   "cli": {
+    "analytics": false,
     "defaultCollection": "@angular-eslint/schematics"
   }
 }

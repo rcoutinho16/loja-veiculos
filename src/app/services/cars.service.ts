@@ -14,81 +14,584 @@ export class CarsService {
       price: "",
       year: "",
       km: "",
-      show: false
+      show: false,
+      images: []
   }
 
   public carsList: Array<Car> = [
     {
       id: 0,
-      make: "Volvo1",
-      model: "Volvo1",
+      make: "Volkswagen",
+      model: "Gol",
       price: "10000",
       year: "2010",
       km: "10000",
-      show: false
+      show: false,
+      images: [
+        {
+          src: '../../../assets/0.jpg'
+        },
+        {
+          src: '../../../assets/1.jpg'
+        },
+        {
+          src: '../../../assets/2.jpg'
+        },
+        {
+          src: '../../../assets/3.jpg'
+        },
+        {
+          src: '../../../assets/4.jpg'
+        },
+        {
+          src: '../../../assets/5.jpg'
+        },
+        {
+          src: '../../../assets/6.jpg'
+        },
+        {
+          src: '../../../assets/7.jpg'
+        },
+        {
+          src: '../../../assets/8.jpg'
+        },
+        {
+          src: '../../../assets/9.jpg'
+        }
+      ]
     },
     {
       id: 1,
-      make: "Volvo2",
-      model: "Volvo2",
+      make: "Volkswagen",
+      model: "Gol 1",
       price: "10000",
       year: "2010",
       km: "10000",
-      show: false
+      show: false,
+      images: [
+        {
+          src: '../../../assets/0.jpg'
+        },
+        {
+          src: '../../../assets/1.jpg'
+        },
+        {
+          src: '../../../assets/2.jpg'
+        },
+        {
+          src: '../../../assets/3.jpg'
+        },
+        {
+          src: '../../../assets/4.jpg'
+        },
+        {
+          src: '../../../assets/5.jpg'
+        },
+        {
+          src: '../../../assets/6.jpg'
+        },
+        {
+          src: '../../../assets/7.jpg'
+        },
+        {
+          src: '../../../assets/8.jpg'
+        },
+        {
+          src: '../../../assets/9.jpg'
+        }
+      ]
     },
     {
       id: 2,
-      make: "Volvo3",
-      model: "Volvo3",
+      make: "Volkswagen",
+      model: "Gol 2",
       price: "10000",
       year: "2010",
       km: "10000",
-      show: false
+      show: false,
+      images: [
+        {
+          src: '../../../assets/0.jpg'
+        },
+        {
+          src: '../../../assets/1.jpg'
+        },
+        {
+          src: '../../../assets/2.jpg'
+        },
+        {
+          src: '../../../assets/3.jpg'
+        },
+        {
+          src: '../../../assets/4.jpg'
+        },
+        {
+          src: '../../../assets/5.jpg'
+        },
+        {
+          src: '../../../assets/6.jpg'
+        },
+        {
+          src: '../../../assets/7.jpg'
+        },
+        {
+          src: '../../../assets/8.jpg'
+        },
+        {
+          src: '../../../assets/9.jpg'
+        }
+      ]
     },
     {
       id: 3,
-      make: "Volvo4",
-      model: "Volvo4",
+      make: "Volkswagen",
+      model: "Gol 3",
       price: "10000",
       year: "2010",
       km: "10000",
-      show: false
+      show: false,
+      images: [
+        {
+          src: '../../../assets/0.jpg'
+        },
+        {
+          src: '../../../assets/1.jpg'
+        },
+        {
+          src: '../../../assets/2.jpg'
+        },
+        {
+          src: '../../../assets/3.jpg'
+        },
+        {
+          src: '../../../assets/4.jpg'
+        },
+        {
+          src: '../../../assets/5.jpg'
+        },
+        {
+          src: '../../../assets/6.jpg'
+        },
+        {
+          src: '../../../assets/7.jpg'
+        },
+        {
+          src: '../../../assets/8.jpg'
+        },
+        {
+          src: '../../../assets/9.jpg'
+        }
+      ]
     },
     {
       id: 4,
-      make: "Volvo5",
-      model: "Volvo5",
+      make: "Volkswagen",
+      model: "Gol 4",
       price: "10000",
       year: "2010",
       km: "10000",
-      show: false
+      show: false,
+      images: [
+        {
+          src: '../../../assets/0.jpg'
+        },
+        {
+          src: '../../../assets/1.jpg'
+        },
+        {
+          src: '../../../assets/2.jpg'
+        },
+        {
+          src: '../../../assets/3.jpg'
+        },
+        {
+          src: '../../../assets/4.jpg'
+        },
+        {
+          src: '../../../assets/5.jpg'
+        },
+        {
+          src: '../../../assets/6.jpg'
+        },
+        {
+          src: '../../../assets/7.jpg'
+        },
+        {
+          src: '../../../assets/8.jpg'
+        },
+        {
+          src: '../../../assets/9.jpg'
+        },
+      ]
     },
     {
       id: 5,
-      make: "Volvo6",
-      model: "Volvo6",
+      make: "Volkswagen",
+      model: "Gol 5",
       price: "10000",
       year: "2010",
       km: "10000",
-      show: false
+      show: false,
+      images: [
+        {
+          src: '../../../assets/0.jpg'
+        },
+        {
+          src: '../../../assets/1.jpg'
+        },
+        {
+          src: '../../../assets/2.jpg'
+        },
+        {
+          src: '../../../assets/3.jpg'
+        },
+        {
+          src: '../../../assets/4.jpg'
+        },
+        {
+          src: '../../../assets/5.jpg'
+        },
+        {
+          src: '../../../assets/6.jpg'
+        },
+        {
+          src: '../../../assets/7.jpg'
+        },
+        {
+          src: '../../../assets/8.jpg'
+        },
+        {
+          src: '../../../assets/9.jpg'
+        }
+      ]
     },
     {
       id: 6,
-      make: "Volvo7",
-      model: "Volvo7",
+      make: "Volkswagen",
+      model: "Gol 6",
       price: "10000",
       year: "2010",
       km: "10000",
-      show: false
+      show: false,
+      images: [
+        {
+          src: '../../../assets/0.jpg'
+        },
+        {
+          src: '../../../assets/1.jpg'
+        },
+        {
+          src: '../../../assets/2.jpg'
+        },
+        {
+          src: '../../../assets/3.jpg'
+        },
+        {
+          src: '../../../assets/4.jpg'
+        },
+        {
+          src: '../../../assets/5.jpg'
+        },
+        {
+          src: '../../../assets/6.jpg'
+        },
+        {
+          src: '../../../assets/7.jpg'
+        },
+        {
+          src: '../../../assets/8.jpg'
+        },
+        {
+          src: '../../../assets/9.jpg'
+        }
+      ]
     },
     {
       id: 7,
-      make: "Volvo8",
-      model: "Volvo8",
+      make: "Volkswagen",
+      model: "Gol 7",
       price: "10000",
       year: "2010",
       km: "10000",
-      show: false
+      show: false,
+      images: [
+        {
+          src: '../../../assets/0.jpg'
+        },
+        {
+          src: '../../../assets/1.jpg'
+        },
+        {
+          src: '../../../assets/2.jpg'
+        },
+        {
+          src: '../../../assets/3.jpg'
+        },
+        {
+          src: '../../../assets/4.jpg'
+        },
+        {
+          src: '../../../assets/5.jpg'
+        },
+        {
+          src: '../../../assets/6.jpg'
+        },
+        {
+          src: '../../../assets/7.jpg'
+        },
+        {
+          src: '../../../assets/8.jpg'
+        },
+        {
+          src: '../../../assets/9.jpg'
+        }
+      ]
+    },
+    {
+      id: 8,
+      make: "Volkswagen",
+      model: "Gol 8",
+      price: "10000",
+      year: "2010",
+      km: "10000",
+      show: false,
+      images: [
+        {
+          src: '../../../assets/0.jpg'
+        },
+        {
+          src: '../../../assets/1.jpg'
+        },
+        {
+          src: '../../../assets/2.jpg'
+        },
+        {
+          src: '../../../assets/3.jpg'
+        },
+        {
+          src: '../../../assets/4.jpg'
+        },
+        {
+          src: '../../../assets/5.jpg'
+        },
+        {
+          src: '../../../assets/6.jpg'
+        },
+        {
+          src: '../../../assets/7.jpg'
+        },
+        {
+          src: '../../../assets/8.jpg'
+        },
+        {
+          src: '../../../assets/9.jpg'
+        }
+      ]
+    },
+    {
+      id: 9,
+      make: "Volkswagen",
+      model: "Gol 9",
+      price: "10000",
+      year: "2010",
+      km: "10000",
+      show: false,
+      images: [
+        {
+          src: '../../../assets/0.jpg'
+        },
+        {
+          src: '../../../assets/1.jpg'
+        },
+        {
+          src: '../../../assets/2.jpg'
+        },
+        {
+          src: '../../../assets/3.jpg'
+        },
+        {
+          src: '../../../assets/4.jpg'
+        },
+        {
+          src: '../../../assets/5.jpg'
+        },
+        {
+          src: '../../../assets/6.jpg'
+        },
+        {
+          src: '../../../assets/7.jpg'
+        },
+        {
+          src: '../../../assets/8.jpg'
+        },
+        {
+          src: '../../../assets/9.jpg'
+        }
+      ]
+    },
+    {
+      id: 10,
+      make: "Volkswagen",
+      model: "Gol 10",
+      price: "10000",
+      year: "2010",
+      km: "10000",
+      show: false,
+      images: [
+        {
+          src: '../../../assets/0.jpg'
+        },
+        {
+          src: '../../../assets/1.jpg'
+        },
+        {
+          src: '../../../assets/2.jpg'
+        },
+        {
+          src: '../../../assets/3.jpg'
+        },
+        {
+          src: '../../../assets/4.jpg'
+        },
+        {
+          src: '../../../assets/5.jpg'
+        },
+        {
+          src: '../../../assets/6.jpg'
+        },
+        {
+          src: '../../../assets/7.jpg'
+        },
+        {
+          src: '../../../assets/8.jpg'
+        },
+        {
+          src: '../../../assets/9.jpg'
+        }
+      ]
+    },
+    {
+      id: 11,
+      make: "Volkswagen",
+      model: "Gol 11",
+      price: "10000",
+      year: "2010",
+      km: "10000",
+      show: false,
+      images: [
+        {
+          src: '../../../assets/0.jpg'
+        },
+        {
+          src: '../../../assets/1.jpg'
+        },
+        {
+          src: '../../../assets/2.jpg'
+        },
+        {
+          src: '../../../assets/3.jpg'
+        },
+        {
+          src: '../../../assets/4.jpg'
+        },
+        {
+          src: '../../../assets/5.jpg'
+        },
+        {
+          src: '../../../assets/6.jpg'
+        },
+        {
+          src: '../../../assets/7.jpg'
+        },
+        {
+          src: '../../../assets/8.jpg'
+        },
+        {
+          src: '../../../assets/9.jpg'
+        }
+      ]
+    },
+    {
+      id: 12,
+      make: "Volkswagen",
+      model: "Gol 12",
+      price: "10000",
+      year: "2010",
+      km: "10000",
+      show: false,
+      images: [
+        {
+          src: '../../../assets/0.jpg'
+        },
+        {
+          src: '../../../assets/1.jpg'
+        },
+        {
+          src: '../../../assets/2.jpg'
+        },
+        {
+          src: '../../../assets/3.jpg'
+        },
+        {
+          src: '../../../assets/4.jpg'
+        },
+        {
+          src: '../../../assets/5.jpg'
+        },
+        {
+          src: '../../../assets/6.jpg'
+        },
+        {
+          src: '../../../assets/7.jpg'
+        },
+        {
+          src: '../../../assets/8.jpg'
+        },
+        {
+          src: '../../../assets/9.jpg'
+        }
+      ]
+    },
+    {
+      id: 13,
+      make: "Volkswagen",
+      model: "Gol 13",
+      price: "10000",
+      year: "2010",
+      km: "10000",
+      show: false,
+      images: [
+        {
+          src: '../../../assets/0.jpg'
+        },
+        {
+          src: '../../../assets/1.jpg'
+        },
+        {
+          src: '../../../assets/2.jpg'
+        },
+        {
+          src: '../../../assets/3.jpg'
+        },
+        {
+          src: '../../../assets/4.jpg'
+        },
+        {
+          src: '../../../assets/5.jpg'
+        },
+        {
+          src: '../../../assets/6.jpg'
+        },
+        {
+          src: '../../../assets/7.jpg'
+        },
+        {
+          src: '../../../assets/8.jpg'
+        },
+        {
+          src: '../../../assets/9.jpg'
+        }
+      ]
     }
   ];
 

@@ -7,7 +7,7 @@ import { Dealership } from '../models/dealership.model';
 })
 export class DealershipService {
 
-  public dealetrship: Dealership = {
+  public dealership: Dealership = {
     adressGoogleMapsUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3747.5713407937596!2d-44.58052791679989!3d-20.068389846766642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xa7334eaf784437%3A0x112d321547a80b3a!2sRX%20Multimarcas!5e0!3m2!1spt-BR!2sbr!4v1624483226913!5m2!1spt-BR!2sbr",
     telephone: "(37)3241-5001",
     facebookUrl: "",
@@ -24,11 +24,11 @@ export class DealershipService {
 
   constructor() { }
 
-  public getDealership(): Dealership{
-    return this.dealetrship;
+  public getDealership(){
+    return this.dealership;
   }
 
   public updateDealership(itemUpdate: Dealership) {
-    return this.dealetrship = itemUpdate;
+    return this.dealership = itemUpdate;
   }
 }

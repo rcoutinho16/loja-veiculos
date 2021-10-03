@@ -1,10 +1,29 @@
 <div id="car-detail" class="container-fluid pt-4">
-    <form>
-        <div class="row">
-            <div class="col-6 mb-2">
-                <img class="mx-auto d-block" src="../../../assets/lotus.jpg" style="width: 18rem;">
+    <div class="row">
+        <div class="col-6">
+            <div id="carCarousel" class="carousel slide pt-2" data-bs-interval="5000" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <div *ngFor="let carImg of car.images; let imgIdx = index">
+                        <button type="button" data-bs-target="#carCarousel" attr.data-bs-slide-to="{{imgIdx}}" [class.active]='imgIdx===0' aria-current="true" attr.aria-label="Slide {{imgIdx}}"></button>
+                    </div>
+                </div>
+                <div class="carousel-inner">
+                    <div *ngFor="let carImg of car.images; let imgIdx = index" [class.carousel-item]='true' [class.active]='imgIdx===0'>
+                        <img class="d-block w-100 rounded" [src]=carImg.src>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-            <div class="col-6">
+        </div>
+        <div class="col-6">
+            <form>
                 <div class="row form-group mb-2">
                     <div class="col-1">
                         <label for="make" class="col-form-label">Make:</label>
@@ -45,7 +64,7 @@
                         <input type="text" class="ms-2 form-control-plaintext" id="km" name="km" [ngModel]="car.km" readonly>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
-    </form>
+    </div>
 </div>

@@ -1,10 +1,11 @@
 <div id="car-create" class="container-fluid pt-4">
-    <form #form="ngForm" (ngSubmit)="create(form)">
-        <div class="row">
-            <div class="col-6 mb-2">
-                <img class="mx-auto d-block" src="../../../assets/lotus.jpg" style="width: 18rem;">
-            </div>
-            <div class="col-6">
+    <div class="row">
+        <div class="col-6 mb-2">
+            <button class="btn btn-primary" onclick="document.getElementById('getFile').click()">Add images</button>
+            <input type="file" id="getFile" style="display:none">
+        </div>
+        <div class="col-6">
+            <form #form="ngForm" (ngSubmit)="create(form)">
                 <div class="row form-group mb-2">
                     <div class="col-1">
                         <label for="make" class="col-form-label">Make:</label>
@@ -45,15 +46,15 @@
                         <input type="text" class="ms-2 form-control" id="km" name="km" [(ngModel)]="car.km" #km="ngModel" required>
                     </div>
                 </div>
+            </form>
+        </div>
+        <div class="row">
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button type="button" class="btn btn-secondary fw-bold" (click)="cancel()">Cancel</button>
             </div>
-            <div class="row">
-                <div class="d-grid gap-2 col-6 mx-auto">
-                    <button type="button" class="btn btn-secondary fw-bold" (click)="cancel()">Cancel</button>
-                </div>
-                <div class="d-grid gap-2 col-6 mx-auto">
-                    <button type="submit" [disabled]="!form.valid" class="btn btn-warning fw-bold">Save</button>
-                </div>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button type="submit" [disabled]="!form.valid" class="btn btn-warning fw-bold">Save</button>
             </div>
         </div>
-    </form>
+    </div>
 </div>

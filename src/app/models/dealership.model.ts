@@ -1,6 +1,6 @@
 export interface Dealership{
-    address:string,
-    adressGoogleMapsUrl:string;
+    address: string;
+    adressGoogleMapsUrl: string;
     telephone: string;
     facebookUrl: string;
     instagramUrl: string;

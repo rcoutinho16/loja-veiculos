@@ -30,13 +30,11 @@ export class CarEditComponent implements OnInit {
               private carService: CarsService) { }
 
   ngOnInit(): void {
-    let id: number;
     this.currentId = this.activatedRoute.snapshot.paramMap.get('id');
-
     this.carService.getCarById(this.currentId).subscribe((response: Car) => {
       this.car = response;
       console.log(this.car);
-  });
+    });
   }
 
   public cancel() {

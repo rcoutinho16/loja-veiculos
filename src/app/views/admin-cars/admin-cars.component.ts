@@ -22,8 +22,8 @@ export class AdminCarsComponent implements OnInit {
 
   public delete(id: string) {
     this.carService.deleteCar(id).subscribe((response) => {
-      this.carService.getCars().subscribe((response: Car[]) => {
-        this.cars = response;
+      this.carService.getCars().subscribe((response2: Car[]) => {
+        this.cars = response2;
       });
     });
   }

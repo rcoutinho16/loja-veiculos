@@ -15,11 +15,17 @@ export class AdminCarsComponent implements OnInit {
   constructor(private carService: CarsService) { }
 
   ngOnInit(): void {
-    this.cars = this.carService.getCars();
+    this.carService.getCars().subscribe((response: Car[]) => {
+      this.cars = response;
+  });
   }
 
-  public delete(id: number) {
-    this.carService.deleteCar(id);
+  public delete(id: string) {
+    this.carService.deleteCar(id).subscribe((response) => {
+      this.carService.getCars().subscribe((response: Car[]) => {
+        this.cars = response;
+      });
+    });
   }
 
 }

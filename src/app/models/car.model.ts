@@ -1,7 +1,7 @@
 import { Image } from "./image.model";
 
 export interface Car {
-    id: number;
+    _id: string;
     make: string;
     model: string;
     price: string;

@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit {
     faTwitter = faTwitter;
 
     public dealership: Dealership = {
+      "_id": "",
       "address": "",
       "adressGoogleMapsUrl": "",
       "telephone": "",
@@ -37,7 +38,11 @@ export class HeaderComponent implements OnInit {
   constructor(private dealershipService: DealershipService) { }
 
   ngOnInit(): void {
-    this.dealership = this.dealershipService.getDealership();
+    this.dealershipService.getDealership().subscribe(
+      (response: Dealership) => {
+        this.dealership = response;
+      }
+    );
   }
 
 }

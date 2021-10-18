@@ -22,17 +22,17 @@
         </thead>
         <tbody>
             <tr *ngFor="let obj of cars">
-                <th scope="row">{{obj.id}}</th>
+                <th scope="row">{{obj._id}}</th>
                 <td>{{obj.make}}</td>
                 <td>{{obj.model}}</td>
                 <td>{{obj.price}}</td>
                 <td>{{obj.year}}</td>
                 <td>{{obj.km}}</td>
                 <td>
-                    <button type="button" class="btn btn-danger btn-sm me-2" (click)="delete(obj.id)">
+                    <button type="button" class="btn btn-danger btn-sm me-2" (click)="delete(obj._id)">
                         Delete
                     </button>
-                    <button type="button" class="btn btn-warning btn-sm" routerLink="/car-edit/{{obj.id}}">
+                    <button type="button" class="btn btn-warning btn-sm" routerLink="/car-edit/{{obj._id}}">
                         Edit
                     </button>
                 </td>

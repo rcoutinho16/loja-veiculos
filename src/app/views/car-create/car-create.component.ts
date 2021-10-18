@@ -12,7 +12,7 @@ import { Car } from 'src/app/models/car.model';
 export class CarCreateComponent implements OnInit {
 
   public car: Car = {
-    id: 0,
+    _id: "",
     make: "",
     model: "",
     price: "0",
@@ -29,8 +29,10 @@ export class CarCreateComponent implements OnInit {
   }
 
   public create(form: any) {
-    this.carService.addCar(this.car);
-    this.router.navigate(['/admin-cars']);
+    console.log('ok');
+    this.carService.addCar(this.car).subscribe((response) => {
+      this.router.navigate(['/admin-cars']);
+    });
   }
 
   public cancel() {

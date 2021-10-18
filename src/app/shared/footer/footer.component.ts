@@ -11,6 +11,7 @@ import { DealershipService } from 'src/app/services/dealership.service';
 export class FooterComponent implements OnInit {
 
   public dealership: Dealership = {
+    "_id": "",
     "address": "",
     "adressGoogleMapsUrl": "",
     "telephone": "",
@@ -28,7 +29,11 @@ export class FooterComponent implements OnInit {
   constructor(private dealershipService: DealershipService) { }
 
   ngOnInit(): void {
-    this.dealership = this.dealershipService.getDealership();
+    this.dealershipService.getDealership().subscribe(
+      (response: Dealership) => {
+        this.dealership = response;
+      }
+    );
   }
 
 }

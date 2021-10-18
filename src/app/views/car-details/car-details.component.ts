@@ -14,7 +14,7 @@ export class CarDetailsComponent implements OnInit {
   public currentId: any;
 
   public car: Car = {
-    id: 0,
+    _id: "",
     make: "",
     model: "",
     price: "0",
@@ -30,9 +30,11 @@ export class CarDetailsComponent implements OnInit {
   ngOnInit(): void {
     let id: number;
     this.currentId = this.activatedRoute.snapshot.paramMap.get('id');
-    id = Number(this.currentId);
 
-    this.car = this.carService.getCarById(id);
+    this.carService.getCarById(this.currentId).subscribe((response: Car) => {
+      this.car = response;
+      console.log(this.car);
+    });
   }
 
 }

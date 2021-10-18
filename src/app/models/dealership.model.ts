@@ -1,4 +1,5 @@
 export interface Dealership{
+    _id: string,
     address: string;
     adressGoogleMapsUrl: string;
     telephone: string;

@@ -12,6 +12,7 @@ import { DealershipService } from 'src/app/services/dealership.service';
 export class AdminComponent implements OnInit {
 
   public dealership: Dealership = {
+    "_id": "",
     "address": "",
     "adressGoogleMapsUrl": "",
     "telephone": "",
@@ -32,7 +33,11 @@ export class AdminComponent implements OnInit {
               private dealershipService: DealershipService) { }
 
   ngOnInit(): void {
-    this.dealership = this.dealershipService.getDealership();
+    this.dealershipService.getDealership().subscribe(
+      (response: Dealership) => {
+        this.dealership = response;
+      }
+    );
   }
 
   public toggleEdit(){
@@ -40,8 +45,11 @@ export class AdminComponent implements OnInit {
   }
 
   public edit(form: any){
-    this.dealershipService.updateDealership(this.dealership);
-    this.toggleEdit();
+    this.dealershipService.updateDealership(this.dealership).subscribe(
+      (response: any) => {
+        window.location.reload();
+      }
+    );
   }
 
 }

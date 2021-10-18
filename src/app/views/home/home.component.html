@@ -3,7 +3,7 @@
     <div class="card ms-3 mb-3" style="width: 18rem;" *ngFor="let obj of cars; let carIdx = index">
         <div class="wrap">
 
-            <a routerLink="/car-details/{{obj.id}}"></a>
+            <a routerLink="/car-details/{{obj._id}}"></a>
 
             <div id="{{'carCarousel' + carIdx}}" class="carousel slide pt-2" data-bs-interval="false" data-bs-ride="carousel">
                 <div class="carousel-inner">

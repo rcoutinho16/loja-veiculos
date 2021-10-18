@@ -15,7 +15,7 @@ export class CarEditComponent implements OnInit {
   public currentId: any;
 
   public car: Car = {
-    id: 0,
+    _id: "",
     make: "",
     model: "",
     price: "0",
@@ -32,9 +32,11 @@ export class CarEditComponent implements OnInit {
   ngOnInit(): void {
     let id: number;
     this.currentId = this.activatedRoute.snapshot.paramMap.get('id');
-    id = Number(this.currentId);
 
-    this.car = this.carService.getCarById(id);
+    this.carService.getCarById(this.currentId).subscribe((response: Car) => {
+      this.car = response;
+      console.log(this.car);
+  });
   }
 
   public cancel() {
@@ -42,8 +44,9 @@ export class CarEditComponent implements OnInit {
   }
 
   public edit(form: any) {
-    this.carService.updateCar(this.car);
-    this.router.navigate(['/admin-cars']);
+    this.carService.updateCar(this.car).subscribe((response) => {
+      this.router.navigate(['/admin-cars']);
+    });
   }
 
 }

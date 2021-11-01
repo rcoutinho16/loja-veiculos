@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { AuthGuardAdminGuard } from './auth/auth-guard-admin.guard';
+import { AuthGuardUserGuard } from './auth/auth-guard-user.guard';
+
 import { HomeComponent } from './views/home/home.component';
 import { CarDetailsComponent } from './views/car-details/car-details.component';
 import { CarCreateComponent } from './views/car-create/car-create.component';
@@ -10,6 +13,10 @@ import { ContactComponent } from './views/contact/contact.component';
 import { LoginComponent } from './views/login/login.component';
 import { AdminComponent } from './views/admin/admin.component';
 import { AdminCarsComponent } from './views/admin-cars/admin-cars.component';
+import { AdminUsersComponent } from './views/admin-users/admin-users.component';
+import { FavoritesListComponent } from './views/favorites-list/favorites-list.component';
+import { ProfileComponent } from './views/profile/profile.component';
+import { RegisterComponent } from './views/register/register.component';
 
 const routes: Routes = [
   {
@@ -23,7 +30,8 @@ const routes: Routes = [
   },
   {
     path: 'car-create',
-    component: CarCreateComponent
+    component: CarCreateComponent,
+    canActivate: [AuthGuardAdminGuard]
   },
   {
     path: 'car-details/:id',
@@ -31,7 +39,8 @@ const routes: Routes = [
   },
   {
     path: 'car-edit/:id',
-    component: CarEditComponent
+    component: CarEditComponent,
+    canActivate: [AuthGuardAdminGuard]
   },
   {
     path: 'about-us',
@@ -47,11 +56,32 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    component: AdminComponent
+    component: AdminComponent,
+    canActivate: [AuthGuardAdminGuard]
   },
   {
     path: 'admin-cars',
-    component: AdminCarsComponent
+    component: AdminCarsComponent,
+    canActivate: [AuthGuardAdminGuard]
+  },
+  {
+    path: 'admin-users',
+    component: AdminUsersComponent,
+    canActivate: [AuthGuardAdminGuard]
+  },
+  {
+    path: 'favorites-list',
+    component: FavoritesListComponent,
+    canActivate: [AuthGuardUserGuard]
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuardUserGuard]
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   }
 ];
 

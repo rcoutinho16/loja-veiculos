@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 import { CarsService } from 'src/app/services/cars.service';
 import { Car } from 'src/app/models/car.model';
@@ -12,20 +13,24 @@ export class AdminCarsComponent implements OnInit {
 
   public cars: Car[] = [];
 
-  constructor(private carService: CarsService) { }
+  constructor(private carService: CarsService,
+              private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.carService.getCars().subscribe((response: Car[]) => {
       this.cars = response;
-  });
-  }
-
-  public delete(id: string) {
-    this.carService.deleteCar(id).subscribe((response) => {
-      this.carService.getCars().subscribe((response2: Car[]) => {
-        this.cars = response2;
-      });
     });
   }
 
+  public delete(id: string) {
+    this.carService.deleteCar(id).subscribe(
+      (response) => {
+        this.carService.getCars().subscribe((response2: Car[]) => {
+          this.cars = response2;
+        });
+      },
+      err => {
+        this.toastr.error(err.message);
+      });
+  }
 }

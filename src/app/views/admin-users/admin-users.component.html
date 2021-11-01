@@ -1,0 +1,34 @@
+<div id="admin-users" class="row">
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Username</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Roles</th>
+                <th scope="col">Operations</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let obj of users">
+                <th scope="row">{{obj._id}}</th>
+                <td>{{obj.username}}</td>
+                <td>{{obj.email}}</td>
+                <td>
+                    <div *ngFor="let role of obj.roles">
+                        {{role}}
+                    </div>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-danger btn-sm me-2" (click)="delete(obj._id)">
+                        Delete
+                    </button>
+                    <button type="button" class="btn btn-warning btn-sm" routerLink="/user-edit/{{obj._id}}">
+                        Edit
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

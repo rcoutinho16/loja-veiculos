@@ -46,11 +46,23 @@
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="['/login']" routerLinkActive="active">Login</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" *ngIf="!isUser&&!isAdmin">
+                        <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="['/register']" routerLinkActive="active">Register</a>
+                    </li>
+                    <li class="nav-item" *ngIf="isUser">
+                        <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="['/profile']" routerLinkActive="active">Profile</a>
+                    </li>
+                    <li class="nav-item" *ngIf="isUser">
+                        <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="['/favorites-list']" routerLinkActive="active">Favorites List</a>
+                    </li>
+                    <li class="nav-item" *ngIf="isAdmin">
                         <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="['/admin']" routerLinkActive="active">Admin</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" *ngIf="isAdmin">
                         <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="['/admin-cars']" routerLinkActive="active">Admin Cars</a>
+                    </li>
+                    <li class="nav-item" *ngIf="isAdmin">
+                        <a class="nav-link" data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show" [routerLink]="['/admin-users']" routerLinkActive="active">Admin Users</a>
                     </li>
                 </ul>
             </div>

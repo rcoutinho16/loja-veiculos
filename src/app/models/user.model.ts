@@ -1,7 +1,8 @@
 export interface User{
     _id: string;
-    name: string;
+    username: string;
     email: string;
-    pass: string;
-    isAdmin: boolean;
+    password: string;
+    roles: Array<String>;
+    accessToken: string
 };

@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 
 //3rd party
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
+import { ToastrModule } from 'ngx-toastr';
 //shared
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
@@ -23,6 +23,12 @@ import { CarCreateComponent } from './views/car-create/car-create.component';
 import { CarEditComponent } from './views/car-edit/car-edit.component';
 //pipes
 import { SafePipe } from './pipes/safe.pipe';
+//http interceptor
+import { authInterceptorProviders } from './helpers/auth.interceptor';
+import { AdminUsersComponent } from './views/admin-users/admin-users.component';
+import { FavoritesListComponent } from './views/favorites-list/favorites-list.component';
+import { ProfileComponent } from './views/profile/profile.component';
+import { RegisterComponent } from './views/register/register.component';
 
 @NgModule({
   declarations: [
@@ -38,16 +44,21 @@ import { SafePipe } from './pipes/safe.pipe';
     AdminComponent,
     AdminCarsComponent,
     CarCreateComponent,
-    CarEditComponent
+    CarEditComponent,
+    AdminUsersComponent,
+    FavoritesListComponent,
+    ProfileComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ToastrModule.forRoot()
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

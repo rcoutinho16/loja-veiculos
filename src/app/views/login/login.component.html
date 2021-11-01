@@ -1,29 +1,47 @@
 <div id="login" class="row pt-4 justify-content-center">
     <div class="col-6">
-        <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+        <form #loginForm="ngForm" *ngIf="!isLoggedIn" name="form" (ngSubmit)="loginForm.form.valid && onSubmit()" novalidate>
+            
             <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" name="email" required email #email="ngModel" [(ngModel)]="user.email">
+                <label for="username">Username</label>
+                <input type="text" 
+                       class="form-control" 
+                       name="username"
+                       [(ngModel)]="form.username"
+                       required
+                       #username="ngModel" />
+                <div class="alert alert-danger" role="alert" *ngIf="username.errors && loginForm.submitted">
+                    Username field is mandatory!
+                </div>
             </div>
-
-              <div class="alert alert-danger" role="alert" *ngIf="!email.valid && email.touched">
-                E-mail field is mandatory!
-              </div>
           
               <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="pass" name="pass" required pass #pass="ngModel" [(ngModel)]="user.pass">
-              </div>
-          
-              <div class="alert alert-danger" role="alert" *ngIf="!pass.valid && pass.touched">
-                Password field is mandatory!
+                <input type="password"
+                       class="form-control"
+                       name="pass"
+                       [(ngModel)]="form.password"
+                       required
+                       minlength="6"
+                       #password="ngModel" >
+                <div class="alert alert-danger" role="alert" *ngIf="password.errors && loginForm.submitted">
+                    <div *ngIf="password.errors.required">Password is required</div>
+                    <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+                </div>
               </div>
 
-              <div class="d-grid gap-2 col-9 mx-auto mt-2">
-                <button type="submit" [disabled]="!loginForm.valid" class="btn btn-primary">Login</button>
-          
-                <!-- <button type="button" class="btn btn-secondary" [routerLink]="['/signin']">Registrar</button> !-->
+              <div class="form-group d-grid mt-2 mx-auto">
+                <button class="btn btn-primary btn-block">Login</button>
+              </div>
+
+              <div class="form-group">
+                <div class="alert alert-danger" role="alert" *ngIf="loginForm.submitted && isLoginFailed">
+                  Login failed: {{ errorMessage }}
+                </div>
               </div>
         </form>
+        <div class="alert alert-success" *ngIf="isLoggedIn">
+            Logged in as {{ roles }}.
+        </div>
     </div>
 </div>

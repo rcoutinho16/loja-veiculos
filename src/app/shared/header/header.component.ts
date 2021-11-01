@@ -4,6 +4,7 @@ import { faWhatsapp, faFacebook, faYoutube, faInstagram, faTwitter } from '@fort
 
 import { Dealership } from 'src/app/models/dealership.model';
 import { DealershipService } from 'src/app/services/dealership.service';
+import { TokenStorageService } from 'src/app/services/token-storage.service';
 
 @Component({
   selector: 'app-header',
@@ -12,30 +13,34 @@ import { DealershipService } from 'src/app/services/dealership.service';
 })
 export class HeaderComponent implements OnInit {
 
-    //icons
-    faWhatsapp = faWhatsapp;
-    faFacebook = faFacebook;
-    faYoutube = faYoutube;
-    faInstagram = faInstagram;
-    faTwitter = faTwitter;
+  //icons
+  faWhatsapp = faWhatsapp;
+  faFacebook = faFacebook;
+  faYoutube = faYoutube;
+  faInstagram = faInstagram;
+  faTwitter = faTwitter;
 
-    public dealership: Dealership = {
-      "_id": "",
-      "address": "",
-      "adressGoogleMapsUrl": "",
-      "telephone": "",
-      "facebookUrl": "",
-      "instagramUrl": "",
-      "whatsappUrl": "",
-      "youtubeUrl": "",
-      "twitterUrl": "",
-      "mondayToFridayOpening": "",
-      "mondayToFridayClosing": "",
-      "saturdayOpening": "",
-      "saturdayClosing": ""
-    };
+  public dealership: Dealership = {
+    "_id": "",
+    "address": "",
+    "adressGoogleMapsUrl": "",
+    "telephone": "",
+    "facebookUrl": "",
+    "instagramUrl": "",
+    "whatsappUrl": "",
+    "youtubeUrl": "",
+    "twitterUrl": "",
+    "mondayToFridayOpening": "",
+    "mondayToFridayClosing": "",
+    "saturdayOpening": "",
+    "saturdayClosing": ""
+  };
 
-  constructor(private dealershipService: DealershipService) { }
+  public isAdmin: boolean = false;
+  public isUser: boolean = false;
+
+  constructor(private dealershipService: DealershipService,
+              private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {
     this.dealershipService.getDealership().subscribe(
@@ -43,6 +48,9 @@ export class HeaderComponent implements OnInit {
         this.dealership = response;
       }
     );
+
+    this.isAdmin = this.tokenStorageService.isAdmin();
+    this.isUser = this.tokenStorageService.isUser();
   }
 
 }

@@ -21,14 +21,14 @@ import { AdminComponent } from './views/admin/admin.component';
 import { AdminCarsComponent } from './views/admin-cars/admin-cars.component';
 import { CarCreateComponent } from './views/car-create/car-create.component';
 import { CarEditComponent } from './views/car-edit/car-edit.component';
-//pipes
-import { SafePipe } from './pipes/safe.pipe';
-//http interceptor
-import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { AdminUsersComponent } from './views/admin-users/admin-users.component';
 import { FavoritesListComponent } from './views/favorites-list/favorites-list.component';
 import { ProfileComponent } from './views/profile/profile.component';
 import { RegisterComponent } from './views/register/register.component';
+//pipes
+import { SafePipe } from './pipes/safe.pipe';
+//http interceptor
+import { authInterceptorProviders } from './helpers/auth.interceptor';
 
 @NgModule({
   declarations: [

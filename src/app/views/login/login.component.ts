@@ -48,8 +48,6 @@ export class LoginComponent implements OnInit {
 
     this.user.username = username;
     this.user.password = password;
-
-    console.log(this.user);
     
     this.authService.login(this.user).subscribe(
       (response: User) => {

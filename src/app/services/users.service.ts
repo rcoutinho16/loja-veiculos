@@ -23,7 +23,7 @@ export class UsersService {
     password: "",
     roles: [],
     accessToken: ""
-  }
+  };
 
   private url = `${environment.apiURL}/users`;
 

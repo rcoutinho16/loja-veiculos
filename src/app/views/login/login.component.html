@@ -1,47 +1,52 @@
 <div id="login" class="row pt-4 justify-content-center">
     <div class="col-6">
-        <form #loginForm="ngForm" *ngIf="!isLoggedIn" name="form" (ngSubmit)="loginForm.form.valid && onSubmit()" novalidate>
-            
+        <form #login="ngForm" [formGroup]="loginForm" *ngIf="!isLoggedIn" (ngSubmit)="onSubmit()">
+
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" 
-                       class="form-control" 
-                       name="username"
-                       [(ngModel)]="form.username"
-                       required
-                       #username="ngModel" />
-                <div class="alert alert-danger" role="alert" *ngIf="username.errors && loginForm.submitted">
+                        name="username"
+                        class="form-control"
+                        formControlName="username"
+                        required />
+                <div class="alert alert-danger"
+                    *ngIf="(loginForm.get('username')?.errors?.required  ||
+                            loginForm.get('username')?.errors?.minlength ||
+                            loginForm.get('username')?.errors?.maxlength) &&
+                           (loginForm.get('username')?.touched || login.submitted)">
                     Username field is mandatory!
                 </div>
             </div>
-          
-              <div class="form-group">
+
+            <div class="form-group mt-2">
                 <label for="password">Password</label>
-                <input type="password"
-                       class="form-control"
-                       name="pass"
-                       [(ngModel)]="form.password"
-                       required
-                       minlength="6"
-                       #password="ngModel" >
-                <div class="alert alert-danger" role="alert" *ngIf="password.errors && loginForm.submitted">
-                    <div *ngIf="password.errors.required">Password is required</div>
-                    <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+                <input
+                    type="password"
+                    name="password"
+                    class="form-control"
+                    formControlName="password"
+                    required />
+                <div class="alert alert-danger"
+                     *ngIf="(loginForm.get('password')?.errors?.required) &&
+                            (loginForm.get('password')?.touched || login.submitted)">
+                    Password field is mandatory!
                 </div>
-              </div>
+            </div>
 
-              <div class="form-group d-grid mt-2 mx-auto">
-                <button class="btn btn-primary btn-block">Login</button>
-              </div>
+            <div class="form-group d-grid mt-4 mx-auto">
+                <button class="btn btn-primary btn-block" [disabled]="!loginForm.valid">Login</button>
+            </div>
 
-              <div class="form-group">
-                <div class="alert alert-danger" role="alert" *ngIf="loginForm.submitted && isLoginFailed">
-                  Login failed: {{ errorMessage }}
+            <div class="form-group">
+                <div class="alert alert-danger" role="alert" *ngIf="login.submitted && isLoginFailed">
+                    Login failed: {{ errorMessage }}
                 </div>
-              </div>
+            </div>
         </form>
+
         <div class="alert alert-success" *ngIf="isLoggedIn">
             Logged in as {{ roles }}.
         </div>
+
     </div>
 </div>

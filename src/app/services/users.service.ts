@@ -37,11 +37,11 @@ export class UsersService {
     return this.httpClient.get<User>(`${this.url}/${id}`);
   }
 
-  public updateCar(item: User): Observable<any> {
+  public updateUser(item: User): Observable<any> {
     return this.httpClient.put<User>(`${this.url}/${item._id}`, item, httpOptions);
   }
 
-  public deleteCar(id: string): Observable<User> {
+  public deleteUser(id: string): Observable<User> {
     return this.httpClient.delete<User>(`${this.url}/${id}`);
   }
 }

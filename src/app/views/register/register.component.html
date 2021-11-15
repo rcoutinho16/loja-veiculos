@@ -1,59 +1,58 @@
 <div id="register" class="row pt-4 justify-content-center">
     <div class="col-6">
-        <form #register="ngForm" *ngIf="!isSuccessful" name="form" (ngSubmit)="register.form.valid && onSubmit()" novalidate>
-      
+        <form #register="ngForm" [formGroup]="registerForm" *ngIf="!isSuccessful" (ngSubmit)="onSubmit()">
+
             <div class="form-group">
                 <label for="username">Username</label>
                 <input 
                     type="text"
-                    class="form-control"
                     name="username"
-                    [(ngModel)]="form.username"
-                    required
-                    minlength="3"
-                    maxlength="20"
-                    #username="ngModel" />
-                <div class="alert-danger" *ngIf="username.errors && register.submitted">
-                    <div *ngIf="username.errors.required">Username is required</div>
-                    <div *ngIf="username.errors.minlength">Username must be at least 3 characters</div>
-                    <div *ngIf="username.errors.maxlength">Username must be at most 20 characters</div>
+                    class="form-control"
+                    formControlName="username"
+                    required />
+                <div class="alert alert-danger"
+                     *ngIf="(registerForm.get('username')?.errors?.required  || 
+                             registerForm.get('username')?.errors?.minlength ||
+                             registerForm.get('username')?.errors?.maxlength) &&
+                            (registerForm.get('username')?.touched || register.submitted)">
+                    Please inform a username (4 to 40 characters)
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group mt-2">
                 <label for="email">Email</label>
-                <input
+                <input 
                     type="email"
-                    class="form-control"
                     name="email"
-                    [(ngModel)]="form.email"
-                    required
-                    email
-                    #email="ngModel" />
-                <div class="alert-danger" *ngIf="email.errors && register.submitted">
-                    <div *ngIf="email.errors.required">Email is required</div>
-                    <div *ngIf="email.errors.email">Email must be a valid email address</div>
+                    class="form-control"
+                    formControlName="email"
+                    required />
+                <div class="alert alert-danger"
+                     *ngIf="(registerForm.get('email')?.errors?.required  || 
+                             registerForm.get('email')?.errors?.email) &&
+                            (registerForm.get('email')?.touched || register.submitted)">
+                    Please inform a valid e-mail
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group mt-2">
                 <label for="password">Password</label>
-                <input
+                <input 
                     type="password"
-                    class="form-control"
                     name="password"
-                    [(ngModel)]="form.password"
-                    required
-                    minlength="6"
-                    #password="ngModel" />
-                <div class="alert-danger" *ngIf="password.errors && register.submitted">
-                    <div *ngIf="password.errors.required">Password is required</div>
-                    <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+                    class="form-control"
+                    formControlName="password"
+                    required />
+                <div class="alert alert-danger"
+                     *ngIf="(registerForm.get('password')?.errors?.required  || 
+                             registerForm.get('password')?.errors?.minlength) &&
+                            (registerForm.get('password')?.touched || register.submitted)">
+                    Please inform a password (minimum 6 characters)
                 </div>
             </div>
-      
-            <div class="form-group d-grid mt-2 mx-auto">
-                <button class="btn btn-primary btn-block">Sign Up</button>
+
+            <div class="form-group d-grid mt-4 mx-auto">
+                <button class="btn btn-primary btn-block" [disabled]="!registerForm.valid">Sign Up</button>
             </div>
 
             <div class="alert alert-warning" *ngIf="register.submitted && isSignUpFailed">
@@ -62,7 +61,7 @@
         </form>
 
         <div class="alert alert-success" *ngIf="isSuccessful">
-        Your registration is successful!
+            Your registration is successful!
         </div>
 
     </div>

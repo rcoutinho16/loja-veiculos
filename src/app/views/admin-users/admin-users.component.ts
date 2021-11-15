@@ -24,7 +24,7 @@ export class AdminUsersComponent implements OnInit {
   }
 
   public delete(id: string) {
-    this.userService.deleteCar(id).subscribe(
+    this.userService.deleteUser(id).subscribe(
       (response) => {
         this.userService.getUsers().subscribe((response2: User[]) => {
           this.users = response2;

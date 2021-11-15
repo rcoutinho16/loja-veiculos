@@ -53,4 +53,13 @@ export class HeaderComponent implements OnInit {
     this.isUser = this.tokenStorageService.isUser();
   }
 
+  public logout() {
+    this.tokenStorageService.logOut();
+    this.reloadPage();
+  }
+
+  reloadPage(): void {
+    window.location.reload();
+  }
+
 }
